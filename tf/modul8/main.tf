@@ -1,0 +1,35 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 4.0"
+    }
+  }
+  backend "azurerm" {}
+}
+
+provider "azurerm" {
+  features {}
+}
+
+locals {
+  common_tags = {
+    owner      = var.student_id
+    course     = "iac"
+    module     = "modul7"
+    managed_by = "pipeline4"
+  }
+}
+
+
+module "network" {
+  source              = "git::https://github.com/tyssedalorg/modul8.git//modules/network?ref=network-v1.0.0"
+  project             = var.project
+  location            = var.location
+  resource_group_name = "rg-demo-backend-042"
+}
+
+resource "random_password" "demo" {
+  length  = 24
+  special = true
+}
