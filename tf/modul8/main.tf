@@ -23,7 +23,7 @@ locals {
 
 
 module "network" {
-  source              = "git::https://github.com/sveinungtyssedal/modul8.git//tf/modules/network?ref=network-v1.1.0"
+  source              = "git::https://github.com/sveinungtyssedal/modul8.git//tf/modules/network?ref=network-v1.0.0"
   project             = var.project
   location            = var.location
   resource_group_name = "rg-demo-backend-042"
