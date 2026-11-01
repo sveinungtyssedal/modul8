@@ -14,7 +14,7 @@ concurrency:
 
 defaults:
   run:
-    working-directory: tf\modul8    # her bor Terraform-rota
+    working-directory: tf/modul8    # her bor Terraform-rota
 
 env:
   ARM_USE_OIDC:        "true"
